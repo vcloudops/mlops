@@ -38,11 +38,12 @@ This CloudFormation template sets up a **SageMaker Studio domain**, **user profi
 ```bash
 aws cloudformation deploy \
   --template-file cfnStudioDomain.yaml \
+  --s3-bucket <bucket-name>
   --stack-name sagemaker-studio-deployment \
   --capabilities CAPABILITY_NAMED_IAM \
   --parameter-overrides \
     UserProfileNamePrefix=studio-user \
     DomainNamePrefix=mlops-workshop-domain \
-    JupyterLabAppInstance=ml.m5.2xlarge \
+    JupyterLabAppInstance=ml.t3.medium \
     OwnerID=vivek.t \
     CreateMLflowServer=YES
